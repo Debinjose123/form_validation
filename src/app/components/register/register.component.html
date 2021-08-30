@@ -1,0 +1,71 @@
+  
+<body>
+    <div class="container mt-5">
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success, Well done!</strong> Data entered sucessfully.
+            <button type="button" (click)="closeAlert()" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <br>
+    
+        <form class="content" [formGroup]="profileForm" (ngSubmit)="submitData()">
+             
+            <h3 class="text-center">Register User</h3>
+           
+             <div class="row">
+            <div class="mt-2 col-lg-6 col-6">
+                <input type="text" formControlName="firstName"  class="form-control" placeholder="First Name">
+    
+            
+            <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                 <span class="text-danger" *ngIf="firstname.errors?.required">*First Name is Required.</span>
+                 <span class="text-danger" *ngIf="firstname.errors?.pattern">*Enter only characters.</span>
+                </div>
+    
+        </div>
+            <div class="mt-2 col-lg-6 col-6">
+                <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name">
+    
+                <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+                    <span class="text-danger" *ngIf="lastname.errors?.required">*Last Name is Required.</span>
+                    <span class="text-danger" *ngIf="lastname.errors?.pattern">*Enter only characters.</span>
+                   </div>
+    
+            </div>
+            <div class="mt-2 col-lg-12 col-12">
+                <input type="text" formControlName="emailId" class="form-control" placeholder="Email Id">
+    
+                <div *ngIf="emailid.invalid && (emailid.touched || emailid.dirty)">
+                    <span class="text-danger" *ngIf="emailid.errors?.required">*EmailId is Required.</span>
+                    <span class="text-danger" *ngIf="emailid.errors?.pattern">*Enter valid Email Id.</span>
+                   </div>
+    
+            </div>
+            <div class="mt-2 col-lg-12 col-12">
+                <input type="text" formControlName="mobileNumber" class="form-control" placeholder="Mobile Number">
+    
+                <div *ngIf="mobilenumber.invalid && (mobilenumber.touched || mobilenumber.dirty)">
+                    <span class="text-danger" *ngIf="mobilenumber.errors?.required">*mobile Number is Required.</span>
+                    <span class="text-danger" *ngIf="mobilenumber.errors?.pattern">*Mobile Number Should be 10 digits</span>
+                   </div>
+    
+            </div>
+            <div class="mt-2 col-lg-12 col-12">
+                <input type="text" formControlName="address" class="form-control" placeholder="Address">
+                <div *ngIf="useraddress.invalid && (useraddress.touched || useraddress.dirty)">
+                    <span class="text-danger" *ngIf="useraddress.errors?.required">*Address is Required.</span>
+                    
+                   </div>
+    
+            </div>
+            
+    
+            <div class="mt-2 col-lg-12 col-12">
+                <button class="btn btn-primary"[disabled]="profileForm.invalid">Submit</button>
+                
+    
+            </div>
+        </div>
+        </form>
+    
+    </div>
+    </body>

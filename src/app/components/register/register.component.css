@@ -1,0 +1,16 @@
+.content
+{
+    max-width:500px;
+    margin:auto;
+    background-color:rgb(225, 232, 233);
+    padding: 2% 5%;
+}
+button
+{
+    background-color: black;
+    color:aliceblue;
+}
+button:hover
+{
+    color: aliceblue;
+}
